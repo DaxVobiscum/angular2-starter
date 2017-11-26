@@ -22,12 +22,72 @@ export class HeroService {
     private messageService: MessageService
   ) { }
 
+
+
+  /** GET hero by id. Return `undefined` when id not found */
+  getHeroNo404<Data>(id: number): Observable<Hero> {
+
+    const url = `${this.heroesUrl}/?id=${id}`;
+
+    return this.http.get<Hero[]>(url)
+      .pipe(
+        map(heroes => heroes[0]), // returns a {0|1} element array
+        tap(h => {
+          const outcome = h ? 'fetched' : 'did not find';
+          this.log(`${outcome} hero id=${id}`);
+        }),
+        catchError(this.handleError<Hero>(`getHero id=${id}`))
+      );
+  }
+
+  /** GET hero by id. Will 404 if id not found */
+  getHero(id: number): Observable<Hero> {
+
+    const url = `${this.heroesUrl}/${id}`;
+
+    return this.http.get<Hero>(url)
+      .pipe(
+        tap(_ => this.log(`fetched hero id=${id}`)),
+        catchError(this.handleError<Hero>(`getHero id=${id}`))
+      );
+  }
+
+  /** GET heroes from the server */
+  getHeroes(): Observable<Hero[]> {
+
+    return this.http.get<Hero[]>(this.heroesUrl)
+      .pipe(
+        tap(heroes => this.log('fetched heroes')),
+        catchError(this.handleError('getHeroes', []))
+      );
+  }
+
+  /** GET heroes whose name contains search term */
+  searchHeroes(term: string): Observable<Hero[]> {
+
+    if (!term.trim()) {
+
+      // if no search term, return empty hero array
+      return of([]);
+    }
+
+    const url = `${this.heroesUrl}/?name=${term}`;
+
+    return this.http.get<Hero[]>(url)
+      .pipe(
+        tap(_ => this.log(`found heroes matching "${term}"`)),
+        catchError(this.handleError<Hero[]>('searchHeroes', []))
+      );
+  }
+
+  //////// Save Methods ////////
+
   /** POST: add a new hero to the server */
   addHero(hero: Hero): Observable<Hero> {
 
-    return this.http.post(this.heroesUrl, hero, httpOptions)
+    return this.http.post<Hero>(this.heroesUrl, hero, httpOptions)
       .pipe(
-        tap({hero: Hero} => this.log(`added hero w/ id=${hero.id}`)),
+        tap((hero: Hero) => this.log(`added hero w/ id=${hero.id}`)),
         catchError(this.handleError<Hero>('addHero'))
       );
   }
@@ -45,45 +105,7 @@ export class HeroService {
       );
   }
 
-  /** GET hero by id. Will 404 if id not found */
-  getHero(id: number): Observable<Hero> {
-
-    const url = `${this.heroesUrl}/${id}`;
-
-    return this.http.get<Hero>(url)
-      .pipe(
-        tap(_ => this.log(`fetched hero id=${id}`)),
-        catchError(this.handleError<Hero>(`getHero id=${id}`))
-      );
-  }
-
-  getHeroes(): Observable<Hero[]> {
-
-    return this.http.get<Hero[]>(this.heroesUrl)
-      .pipe(
-        tap(heroes => this.log('fetched heroes')),
-        catchError(this.handleError('getHeroes', []))
-      );
-  }
-
-  /* GET heroes whose name contains search term */
-  searchHeroes(term: string): Observable<Hero[]> {
-
-    if (!term.trim()) {
-
-      // if no search term, return empty hero array
-      return of([]);
-    }
-
-    let url = `${this.heroesUrl}/?name=${term}`;
-
-    return this.http.get(url)
-      .pipe(
-        tap(_ => this.log(`found heroes matching "${term}"`)),
-        catchError(this.handleError<Hero[]>('searchHeroes', []))
-      );
-  }
-
+  /** PUT update hero on the server */
   updateHero(hero: Hero): Observable<any> {
 
     return this.http.put(this.heroesUrl, hero, httpOptions)
