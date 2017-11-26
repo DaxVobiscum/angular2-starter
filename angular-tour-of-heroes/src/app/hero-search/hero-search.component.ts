@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Observabe } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { of } from 'rxjs/observable/of';
 
