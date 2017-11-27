@@ -1,3 +1,6 @@
-<p>
-  films works!
-</p>
+<h2>Films</h2>
+<ul>
+  <li *ngFor="let film of films">
+    <span>id: {{film.id}}</span> <a routerLink="/film/{{film.id}}">{{film.title}} ({{film.year}})</a>
+  </li>
+</ul>

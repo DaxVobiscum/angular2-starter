@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Film } from '../film';
+
+import { FILMS } from '../mock-films';
+
 @Component({
   selector: 'app-films',
   templateUrl: './films.component.html',
@@ -7,9 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilmsComponent implements OnInit {
 
+  films: Film[];
+
   constructor() { }
 
   ngOnInit() {
+
+    this.films = FILMS;
   }
 
 }
