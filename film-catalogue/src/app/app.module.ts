@@ -8,13 +8,17 @@ import { FilmService } from './film.service';
 import { FilmsComponent } from './films/films.component';
 import { FilmDetailComponent } from './film-detail/film-detail.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { CollectionDetailComponent } from './collection-detail/collection-detail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     FilmsComponent,
-    FilmDetailComponent
+    FilmDetailComponent,
+    DashboardComponent,
+    CollectionDetailComponent
   ],
   imports: [
     BrowserModule,

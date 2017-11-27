@@ -1,0 +1,4 @@
+<h2>Film Collections</h2>
+<div *ngFor="let collection of collections | async">
+  <app-collection-detail [collection]="collection"></app-collection-detail>
+</div>
