@@ -2,23 +2,9 @@ import { Film } from './film';
 
 export class Collection {
 
-  private idGen: any;
-
   private collection: any;
 
   constructor(public id?: number, public name?: string) {
-
-    this.idGen = function* () {
-
-      var currentId = 0;
-
-      while (true) {
-
-        currentId++;
-
-        yield currentId;
-      }
-    };
 
     this.collection = new Map<number, Film>();
   }
