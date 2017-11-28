@@ -1,0 +1,33 @@
+<h2>New Collection</h2>
+<div>
+  <span>Name:</span> <input [(ngModel)]="collectionName" />
+  <div *ngIf="films">
+    <h3>Select Films</h3>
+    <ul>
+      <li *ngFor="let film of films">
+        <span>{{film.title}} ({{film.year}})</span>
+        <div [ngSwitch]="filmSelected(film.id)">
+          <button *ngSwitchCase="false" (click)="addFilm(film.id)">+</button>
+          <button *ngSwitchCase="true" (click)="removeFilm(film.id)">-</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <h3>Collection:</h3>
+  <ul>
+    <li><span>ID: </span>{{(!newCollection.id)? 'N/A' : newCollection.id}}</li>
+    <li><span>Name: </span> {{collectionName}}</li>
+    <li>
+      <span>Films:</span>
+      <ul>
+        <li *ngFor="let film of getFilms()">
+          {{film.title}} ({{film.year}})
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <button type="button"
+    disabled="{{(enableSave()) ? '' : 'disabled'}}"
+    (click)="saveCollection()"
+  >Save Collection</button>
+</div>

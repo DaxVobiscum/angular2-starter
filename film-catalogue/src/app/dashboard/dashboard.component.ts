@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { Collection } from '../collection';
 
-import { FilmService } from '../film.service';
+import { CollectionService } from '../collection.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,11 +14,11 @@ export class DashboardComponent implements OnInit {
 
   collections: Observable<Collection[]>;
 
-  constructor(private filmService: FilmService) { }
+  constructor(private collectionService: CollectionService) { }
 
   ngOnInit() {
 
-    this.collections = this.filmService.getCollections();
+    this.collections = this.collectionService.getCollections();
       // .subscribe(collections => this.collections = collections);
   }
 

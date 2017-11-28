@@ -10,6 +10,8 @@ import { FilmDetailComponent } from './film-detail/film-detail.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CollectionDetailComponent } from './collection-detail/collection-detail.component';
+import { NewCollectionComponent } from './new-collection/new-collection.component';
+import { CollectionService } from './collection.service';
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { CollectionDetailComponent } from './collection-detail/collection-detail
     FilmsComponent,
     FilmDetailComponent,
     DashboardComponent,
-    CollectionDetailComponent
+    CollectionDetailComponent,
+    NewCollectionComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import { CollectionDetailComponent } from './collection-detail/collection-detail
     AppRoutingModule
   ],
   providers: [
-    FilmService
+    FilmService,
+    CollectionService
   ],
   bootstrap: [AppComponent]
 })
