@@ -85,7 +85,6 @@ export class CollectionService {
             return this.http.post(this.collectionsUrl, this.convertSmartToDumb(newCollection), httpOptions)
               .pipe(
                 map((collection: DumbCollection) => this.convertDumbToSmart(collection)),
-                // tap((collection: SmartCollection) => debugger),
                 tap((collection: SmartCollection) => this.log(`added collection w/ id=${collection.id}`)),
                 catchError(this.handleError<SmartCollection>(`newCollection`))
               );

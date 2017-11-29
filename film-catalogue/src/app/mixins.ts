@@ -1,12 +1,12 @@
 export class IDGenerator {
 
-  static create(initialId: number, maxId?: number): IterableIterator<number> {
+  static create(initialId?: number, maxId?: number): IterableIterator<number> {
 
     let idGen = function* () {
 
-      let currentId = initialId;
+      let currentId = initialId || 0;
 
-      while (true && (!maxId || currentId < maxId)) {
+      while (!maxId || currentId < maxId) {
 
         currentId++;
 
