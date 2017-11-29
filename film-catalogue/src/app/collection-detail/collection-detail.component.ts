@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Collection } from '../collection';
+import { SmartCollection as Collection } from '../collection';
 import { Film } from '../film';
 
 @Component({

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Film } from '../film';
 
-import { FILMS } from '../mock-films';
+import { FilmService } from '../film.service';
 
 @Component({
   selector: 'app-films',
@@ -13,11 +13,12 @@ export class FilmsComponent implements OnInit {
 
   films: Film[];
 
-  constructor() { }
+  constructor(private filmService: FilmService) { }
 
   ngOnInit() {
 
-    this.films = FILMS;
+    this.filmService.getFilms()
+      .subscribe(films => this.films = films);
   }
 
 }

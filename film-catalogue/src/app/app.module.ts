@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppComponent } from './app.component';
 import { FilmService } from './film.service';
@@ -12,6 +15,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CollectionDetailComponent } from './collection-detail/collection-detail.component';
 import { NewCollectionComponent } from './new-collection/new-collection.component';
 import { CollectionService } from './collection.service';
+import { MessageService } from './message.service';
+import { MessagesComponent } from './messages/messages.component';
 
 
 @NgModule({
@@ -21,16 +26,22 @@ import { CollectionService } from './collection.service';
     FilmDetailComponent,
     DashboardComponent,
     CollectionDetailComponent,
-    NewCollectionComponent
+    NewCollectionComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    ),
     AppRoutingModule
   ],
   providers: [
     FilmService,
-    CollectionService
+    CollectionService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

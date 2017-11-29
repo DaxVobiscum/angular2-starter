@@ -1,46 +1,78 @@
 import { Film } from './film';
 
-export class Collection {
+abstract class Collection {
 
-  private collection: any;
+  public id?: number;
+  public name?: string;
 
-  constructor(public id?: number, public name?: string) {
+  public films: any;
+}
 
-    this.collection = new Map<number, Film>();
+export class DumbCollection extends Collection {
+
+  public films: any;
+
+  constructor(public id?: number, public name?: string, films?: Map<number, Film>) {
+
+    super();
+
+    this.films = [ ];
+
+    if (films) {
+
+      films.forEach(film => this.films.push([ film.id, film ]));
+    }
+  }
+
+  add(key: number, value: Film) {
+
+    this.films.push([ key, value ]);
+  }
+}
+
+export class SmartCollection extends Collection {
+
+  public films: any;
+
+  constructor(public id?: number, public name?: string, films?: Iterable<[number, Film]>) {
+
+    super();
+
+    this.films = new Map<number, Film>(films);
   }
 
   delete(key: number): boolean {
 
-    return this.collection.delete(key);
+    return this.films.delete(key);
   }
 
   forEach(callback: Function, thisArg?: any): void {
 
-    this.collection.forEach(callback, thisArg);
+    this.films.forEach(callback, thisArg);
   }
 
   get(key: number): Film {
 
-    return this.collection.get(key);
+    return this.films.get(key);
   }
 
   has(key: number): boolean {
 
-    return this.collection.has(key);
+    return this.films.has(key);
   }
 
   keys(): IterableIterator<number> {
 
-    return this.collection.keys();
+    return this.films.keys();
   }
 
   set(key: number, value: Film): this {
 
-    return this.collection.set(key, value);
+    return this.films.set(key, value);
   }
 
   values(): IterableIterator<Film> {
 
-    return this.collection.values();
+    return this.films.values();
   }
 }

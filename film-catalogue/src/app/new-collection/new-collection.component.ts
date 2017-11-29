@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 import { FilmService } from '../film.service';
 import { CollectionService } from '../collection.service';
 
-import { Collection } from '../collection';
+import { SmartCollection as Collection } from '../collection';
 import { Film } from '../film';
 
 @Component({
@@ -72,7 +72,7 @@ export class NewCollectionComponent implements OnInit {
 
     this.newCollection.name = this.collectionName;
 
-    this.collectionService.addCollection(this.newCollection)
+    this.collectionService.newCollection(this.newCollection)
       .subscribe(collection => this.newCollection = collection);
   }
 
