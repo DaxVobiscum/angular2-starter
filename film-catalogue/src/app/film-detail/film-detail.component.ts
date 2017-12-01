@@ -9,7 +9,7 @@ import { Film } from '../film';
 @Component({
   selector: 'app-film-detail',
   templateUrl: './film-detail.component.html',
-  styleUrls: ['./film-detail.component.css']
+  styleUrls: ['./film-detail.component.scss']
 })
 export class FilmDetailComponent implements OnInit {
 

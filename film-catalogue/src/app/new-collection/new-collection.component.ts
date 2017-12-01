@@ -13,7 +13,7 @@ import { Film } from '../film';
 @Component({
   selector: 'app-new-collection',
   templateUrl: './new-collection.component.html',
-  styleUrls: ['./new-collection.component.css']
+  styleUrls: ['./new-collection.component.scss']
 })
 export class NewCollectionComponent implements OnInit {
 
