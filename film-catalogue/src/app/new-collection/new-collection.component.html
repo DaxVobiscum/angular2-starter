@@ -3,15 +3,17 @@
   <span>Name:</span> <input [(ngModel)]="collectionName" />
   <div *ngIf="films">
     <h3>Select Films</h3>
-    <ul>
-      <li *ngFor="let film of films">
-        <span>{{film.title}} ({{film.year}})</span>
-        <div [ngSwitch]="filmSelected(film.id)">
-          <button *ngSwitchCase="false" (click)="addFilm(film.id)">+</button>
-          <button *ngSwitchCase="true" (click)="removeFilm(film.id)">-</button>
+    <div class="film-list">
+      <div class="film-option" *ngFor="let film of films">
+        <div class="film-info">
+          <span>{{film.title}} ({{film.year}})</span>
         </div>
-      </li>
-    </ul>
+        <div class="film-select" [ngSwitch]="filmSelected(film.id)">
+          <button class="film-add" *ngSwitchCase="false" (click)="addFilm(film.id)">&#x002B;</button>
+          <button class="film-remove"*ngSwitchCase="true" (click)="removeFilm(film.id)">&#x002D;</button>
+        </div>
+      </div>
+    </div>
   </div>
   <h3>Collection:</h3>
   <ul>

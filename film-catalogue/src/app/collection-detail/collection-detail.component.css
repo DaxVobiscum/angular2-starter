@@ -1,0 +1,35 @@
+.collection-detail {
+  position: relative;
+  width: 320px;
+  height: 160px;
+  border: 1px solid black;
+  margin: 8px auto;
+}
+.collection-name {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 20px;
+  border-bottom: 1px solid black;
+  padding: 2px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 16px;
+}
+.collection-films {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 20px;
+  border-top: 1px solid black;
+  padding: 2px;
+  text-align: center;
+}
+.collection-film {
+  display: none;
+}
+.collection-film:nth-child(-n+1) {
+  display: block;
+}
