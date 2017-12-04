@@ -1,19 +1,20 @@
 <h2>New Collection</h2>
 <div>
   <span>Name:</span> <input [(ngModel)]="collectionName" />
-  <div *ngIf="films">
-    <h3>Select Films</h3>
-    <div class="film-list">
-      <div class="film-option" *ngFor="let film of films">
+  <div class="section-films" *ngIf="films">
+    <h3>Films</h3>
+    <mdc-list class="film-list">
+      <mdc-list-item class="film-option"
+        *ngFor="let film of films"
+        (click)="toggleFilm(film.id)">
         <div class="film-info">
           <span>{{film.title}} ({{film.year}})</span>
         </div>
-        <div class="film-select" [ngSwitch]="filmSelected(film.id)">
-          <button class="film-add" *ngSwitchCase="false" (click)="addFilm(film.id)">&#x002B;</button>
-          <button class="film-remove"*ngSwitchCase="true" (click)="removeFilm(film.id)">&#x002D;</button>
-        </div>
-      </div>
-    </div>
+        <mdc-form-field>
+          <mdc-checkbox [checked]="filmSelected(film.id)"></mdc-checkbox>
+        </mdc-form-field>
+      </mdc-list-item>
+    </mdc-list>
   </div>
   <h3>Collection:</h3>
   <ul>

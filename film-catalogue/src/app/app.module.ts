@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MdcCheckboxModule, MdcFormFieldModule, MdcListModule } from '@angular-mdc/web';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
@@ -38,6 +39,9 @@ import { MessagesComponent } from './messages/messages.component';
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),
+    MdcCheckboxModule,
+    MdcFormFieldModule,
+    MdcListModule,
     AppRoutingModule
   ],
   providers: [

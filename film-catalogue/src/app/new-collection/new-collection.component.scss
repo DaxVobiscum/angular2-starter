@@ -1,47 +1,19 @@
-.film-list {
+@import '~sass/themes/theme';
+
+.section-films {
   width: 320px;
   margin: auto;
 }
-.film-option {
-  position: relative;
-  width: auto;
-  height: 24px;
-  margin: 4px auto;
-  padding: 4px 0;
-  border: 1px solid #fff;
-  border-radius: 4px;
+.film-list {
+  padding: 0;
 }
 .film-option > div {
   display: inline-block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
 }
 .film-info {
-  left: 0;
   width: 280px;
   padding: 8px 4px;
-  background-color: #9cf;
+  border-radius: 8px;
+  background-color: $mdc-theme-secondary;
   color: #000;
-}
-.film-select {
-  right: 0;
-  width: 32px;
-}
-.film-select > button {
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  border: 0;
-  font-size: 24px;
-  font-weight: 800;
-  cursor: pointer;
-}
-.film-add {
-  background-color: #630;
-  color: #fff;
-}
-.film-remove {
-  background-color: #fff;
-  color: #630;
 }

@@ -55,8 +55,26 @@ export class NewCollectionComponent implements OnInit {
     this.newCollection.delete(filmId);
   }
 
+  toggleFilm(filmId: number): void {
+
+    let filmSelected = this.filmSelected(filmId);
+
+    if (filmSelected) {
+
+      this.newCollection.delete(filmId);
+    }
+    else {
+
+      let film = this.films.find(film => film.id === filmId);
+
+      this.newCollection.set(filmId, film);
+    }
+  }
+
   filmSelected(filmId: number): boolean {
 
+    //
+    
     return this.newCollection.has(filmId);
   }
 
