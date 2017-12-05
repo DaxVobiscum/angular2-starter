@@ -12,14 +12,14 @@ import { CollectionService } from '../collection.service';
 })
 export class DashboardComponent implements OnInit {
 
-  collections: Observable<Collection[]>;
+  collections: Collection[];
 
   constructor(private collectionService: CollectionService) { }
 
   ngOnInit() {
 
-    this.collections = this.collectionService.getCollections();
-      // .subscribe(collections => this.collections = collections);
+    this.collectionService.getCollections()
+      .subscribe(collections => this.collections = collections);
   }
 
 }

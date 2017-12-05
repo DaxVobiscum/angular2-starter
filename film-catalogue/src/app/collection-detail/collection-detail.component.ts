@@ -16,7 +16,9 @@ export class CollectionDetailComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  ngDoCheck() {
 
     this.films = this.collection.values();
   }
