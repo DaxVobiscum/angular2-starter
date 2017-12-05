@@ -1,0 +1,19 @@
+@import '~sass/themes/theme';
+
+.section-films {
+  width: 320px;
+  margin: auto;
+}
+.film-list {
+  padding: 0;
+}
+.film-option > div {
+  display: inline-block;
+}
+.film-info {
+  width: 280px;
+  padding: 8px 4px;
+  border-radius: 8px;
+  background-color: $mdc-theme-secondary;
+  color: #000;
+}

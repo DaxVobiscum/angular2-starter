@@ -1,0 +1,7 @@
+<h2>Film Collections</h2>
+<a routerLink="/collections/new">New Collection</a>
+<div class="collection-grid">
+  <div *ngFor="let collection of collections">
+    <app-collection-detail [collection]="collection"></app-collection-detail>
+  </div>
+</div>

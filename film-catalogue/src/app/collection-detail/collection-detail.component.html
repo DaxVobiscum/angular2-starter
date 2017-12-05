@@ -1,0 +1,22 @@
+<mdc-card *ngIf="collection">
+  <mdc-card-primary>
+    <mdc-card-title>{{collection.name}}</mdc-card-title>
+  </mdc-card-primary>
+  <mdc-card-supporting-text>
+    <div class="collection-film" *ngFor="let film of films">
+      {{film.title}} ({{film.year}})
+    </div>
+  </mdc-card-supporting-text>
+</mdc-card>
+<!--
+<div class="collection-detail" *ngIf="collection">
+  <div class="collection-name">
+    {{collection.name}}
+  </div>
+  <div class="collection-films">
+    <div class="collection-film" *ngFor="let film of films">
+      {{film.title}} ({{film.year}})
+    </div>
+  </div>
+</div>
+-->
