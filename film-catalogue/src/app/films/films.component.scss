@@ -1,0 +1,40 @@
+@import '~sass/themes/theme';
+
+.film-item {
+  display: flex;
+  height: 48px;
+  width: 576px;
+  margin: 4px;
+  border-radius: 24px;
+  background-color: $mdc-theme-secondary;
+}
+
+.film-id {
+  height: 48px;
+  width: 48px;
+  line-height: 48px;
+  border-radius: 24px;
+  text-align: center;
+  background-color: $mdc-theme-primary;
+  color: #fff;
+}
+
+.film-title {
+  display: flex;
+  height: 48px;
+  width: 480px;
+  padding-left: 8px;
+  line-height: 48px;
+}
+
+.film-title {
+  > a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+  },
+  > a:hover,
+  > a:visited {
+    color: #000;
+  }
+}

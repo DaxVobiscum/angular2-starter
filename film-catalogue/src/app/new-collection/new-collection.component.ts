@@ -72,8 +72,6 @@ export class NewCollectionComponent implements OnInit {
   }
 
   filmSelected(filmId: number): boolean {
-
-    //
     
     return this.newCollection.has(filmId);
   }

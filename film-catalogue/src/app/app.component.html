@@ -1,8 +1,29 @@
 <div id="app-container">
-  <h1>{{title}}</h1>
-  <div>
-    <a routerLink="/dashboard">Dashboard</a> | <a routerLink="/films">Films</a>
+  <mdc-toolbar>
+    <mdc-toolbar-row>
+      <mdc-toolbar-section [alignStart]="true">
+        <button type="button" mdc-toolbar-menu-icon
+          (click)="showDrawer()">
+          <mdc-icon>menu</mdc-icon>
+        </button>
+        <mdc-toolbar-title>{{title}}</mdc-toolbar-title>
+      </mdc-toolbar-section>
+    </mdc-toolbar-row>
+  </mdc-toolbar>
+  <mdc-temporary-drawer>
+    <mdc-temporary-drawer-content>
+      <mdc-list>
+        <mdc-list-item>
+          <a routerLink="/dashboard">Dashboard</a>
+        </mdc-list-item>
+        <mdc-list-item>
+          <a routerLink="/films">Films</a>
+        </mdc-list-item>
+      </mdc-list>
+    </mdc-temporary-drawer-content>
+  </mdc-temporary-drawer>
+  <div id="app-content">
+    <router-outlet></router-outlet>
+    <app-messages></app-messages>
   </div>
-  <router-outlet></router-outlet>
-  <app-messages></app-messages>
 </div>
