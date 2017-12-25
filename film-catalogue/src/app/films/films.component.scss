@@ -6,7 +6,7 @@
   width: 576px;
   margin: 4px;
   border-radius: 24px;
-  background-color: $mdc-theme-secondary;
+  @extend .mdc-theme--secondary-bg;
 }
 
 .film-id {
@@ -15,7 +15,7 @@
   line-height: 48px;
   border-radius: 24px;
   text-align: center;
-  background-color: $mdc-theme-primary;
+  @extend .mdc-theme--primary-bg;
   color: #fff;
 }
 

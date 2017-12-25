@@ -1,19 +1,43 @@
 @import '~sass/themes/theme';
 
-.section-films {
-  width: 320px;
-  margin: auto;
+.new-collection-form,
+.new-collection-preview {
+  display: inline-block;
+  vertical-align: top;
 }
+
+.new-collection-preview {
+  padding-left: 16px;
+  border-left: 1px solid $mdc-theme-primary;
+}
+
+.section-films {
+  width: 352px;
+  height: 352px;
+  padding-bottom: 32px;
+}
+
 .film-list {
+  width: 320px;
+  height: inherit;
+  padding-left: 8px;
+  border: 1px solid $mdc-theme-primary;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.film-list > mdc-list {
   padding: 0;
 }
+
 .film-option > div {
   display: inline-block;
 }
+
 .film-info {
   width: 280px;
   padding: 8px 4px;
   border-radius: 8px;
-  background-color: $mdc-theme-secondary;
+  @extend .mdc-theme--secondary-bg;
   color: #000;
 }

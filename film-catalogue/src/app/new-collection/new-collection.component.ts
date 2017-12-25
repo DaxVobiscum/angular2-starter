@@ -20,6 +20,7 @@ export class NewCollectionComponent implements OnInit {
   films: Film[];
   newCollection: Collection;
 
+  collectionId: string = 'N/A';
   collectionName: string = '';
 
   constructor(
@@ -72,7 +73,7 @@ export class NewCollectionComponent implements OnInit {
   }
 
   filmSelected(filmId: number): boolean {
-    
+
     return this.newCollection.has(filmId);
   }
 
@@ -89,7 +90,12 @@ export class NewCollectionComponent implements OnInit {
     this.newCollection.name = this.collectionName;
 
     this.collectionService.newCollection(this.newCollection)
-      .subscribe(collection => this.newCollection = collection);
+      .subscribe(collection => {
+
+        this.newCollection = collection;
+
+        this.collectionId = String(collection.id);
+      });
   }
 
 }
